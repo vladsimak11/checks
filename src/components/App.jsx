@@ -1,40 +1,34 @@
 import React, { useState } from "react";
-import {Home} from "./Home/Home";
+import {Mismatched} from "./Mismatched/Mismatched";
 import {About} from "./About/About";
 import {Contact} from "./Contact/Contact";
 
+import { Container, Buttons, Button, Block } from './App.styled';
+
 export const App = () => {
-  const [activeComponent, setActiveComponent] = useState("Home");
+  const [activeComponent, setActiveComponent] = useState("Mismatched");
 
   const components = {
-    Home: <Home />,
+    Mismatched: <Mismatched />,
     About: <About />,
     Contact: <Contact />,
   };
 
   return (
-      <div style={{ textAlign: "center" }}>
-        <div style={{ marginBottom: "20px" }}>
-          {["Home", "About", "Contact"].map((name) => (
-            <button
+      <Container>
+        <Buttons>
+          {["Mismatched", "About", "Contact"].map((name) => (
+            <Button
               key={name}
               onClick={() => setActiveComponent(name)}
-              style={{
-                margin: "5px",
-                padding: "10px 20px",
-                cursor: "pointer",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-                background: activeComponent === name ? "#007bff" : "#f8f9fa",
-                color: activeComponent === name ? "#fff" : "#000",
-              }}
+              active={activeComponent === name}
             >
               {name}
-            </button>
+            </Button>
           ))}
-        </div>
-        <div style={{ fontSize: "20px" }}>{components[activeComponent]}</div>
-      </div>
+        </Buttons>
+        <Block>{components[activeComponent]}</Block>
+      </Container>
 
   );
 };
