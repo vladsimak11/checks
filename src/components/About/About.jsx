@@ -1,6 +1,6 @@
 export const About = () => {
     return (
-        <div>This component for us</div>
+        <div>This component for About</div>
     )
 }
 
