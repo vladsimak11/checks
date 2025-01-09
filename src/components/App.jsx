@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Mismatched} from "./Mismatched/Mismatched";
 import {About} from "./About/About";
-import {Contact} from "./Contact/Contact";
+import {AR} from "./AR/AR";
 
 import { Container, Buttons, Button, Block } from './App.styled';
 
@@ -11,13 +11,13 @@ export const App = () => {
   const components = {
     Mismatched: <Mismatched />,
     About: <About />,
-    Contact: <Contact />,
+    AR: <AR />,
   };
 
   return (
       <Container>
         <Buttons>
-          {["Mismatched", "About", "Contact"].map((name) => (
+          {["Mismatched", "About", "AR"].map((name) => (
             <Button
               key={name}
               onClick={() => setActiveComponent(name)}
